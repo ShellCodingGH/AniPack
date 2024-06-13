@@ -15,7 +15,7 @@ Install ```git lfs```: for your operating system, type in the corresponding comm
   Windows and Mac:
     Please refer to the installation guide: https://git-lfs.com/
 
-Also, make sure you have Python 3.10.14 installed: https://www.python.org/downloads/release/python-31014/
+Also, make sure you have Python installed: https://www.python.org/downloads/
 
 <b>Step 1</b>
 
