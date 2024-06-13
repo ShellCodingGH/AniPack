@@ -17,13 +17,15 @@ Open up a terminal, type in the following commands:
 
 ```git lfs install```
 
-```git clone https://huggingface.co/spaces/Plachta/VITS-Umamusume-voice-synthesizer```
-
 ```git clone https://github.com/ShellCodingGH/AniPack.git```
+
+```cd AniPack```
+
+```git clone https://huggingface.co/spaces/Plachta/VITS-Umamusume-voice-synthesizer```
 
 <b>Step 2</b>
 
-Move all contents in the ```VITS-Umamusume-voice-synthesizer``` folder into your working directory.
+Move all contents in the ```VITS-Umamusume-voice-synthesizer``` folder into your working directory(in this example it's the ```AniPack``` directory).
 
 <b>Step 3</b>
 
