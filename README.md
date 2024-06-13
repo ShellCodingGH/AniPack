@@ -2,6 +2,7 @@
 # Instructions
 
 <b>Step 0</b>
+
 Install ```git lfs```: for your operating system, type in the corresponding commands in terminal to install ```git lfs```
   Ubuntu: 
   
