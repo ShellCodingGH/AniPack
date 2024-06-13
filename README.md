@@ -1,5 +1,16 @@
 # AniPack
 # Instructions
+
+<b>Step 0</b>
+Install ```git lfs```: for your operating system, type in the corresponding commands in terminal to install ```git lfs```
+  Ubuntu: 
+  
+    ```curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash```
+
+    ```sudo apt-get install git-lfs```
+  Windows and Mac:
+    Please refer to the installation guide: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage?platform=windows
+
 <b>Step 1</b>
 
 Open up a terminal, type in the following commands:
