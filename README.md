@@ -3,6 +3,7 @@
 <b>Step 1</b>
 
 Open up a terminal, type in the following commands:
+
 ```git lfs install```
 
 ```git clone https://huggingface.co/spaces/Plachta/VITS-Umamusume-voice-synthesizer```
