@@ -12,6 +12,8 @@ Install ```git lfs```: for your operating system, type in the corresponding comm
   Windows and Mac:
     Please refer to the installation guide: https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage?platform=windows
 
+Also, make sure you have Python 3.10.14 installed: https://www.python.org/downloads/release/python-31014/
+
 <b>Step 1</b>
 
 Open up a terminal, type in the following commands:
