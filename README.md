@@ -19,6 +19,8 @@ Open up a terminal, type in the following commands:
 
 ```git clone https://huggingface.co/spaces/Plachta/VITS-Umamusume-voice-synthesizer```
 
+```git clone https://github.com/ShellCodingGH/AniPack.git```
+
 <b>Step 2</b>
 
 Move all contents in the ```VITS-Umamusume-voice-synthesizer``` folder into your working directory.
