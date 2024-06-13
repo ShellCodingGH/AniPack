@@ -5,7 +5,7 @@
 # -*- coding: utf-8 -*-
 
 # import the modules
-HF_TOKEN = "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"
+HF_TOKEN = "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"
 import torch
 import numpy as np
 import cv2
