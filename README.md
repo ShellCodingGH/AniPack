@@ -35,7 +35,7 @@ Move all contents in the ```VITS-Umamusume-voice-synthesizer``` folder into your
 
 <b>Step 3</b>
 
-Copy and paste the commands in ```requirements_anipack.txt``` into the terminal.
+Copy and paste the commands in ```requirements_anipack.txt``` located at the current directory(ie the AniPack directory) into the terminal.
 
 <b>Step 4</b>
 
