@@ -39,7 +39,7 @@ Copy and paste the commands in ```requirements_anipack.txt``` located at the cur
 
 <b>Step 4</b>
 
-Edit ```character_with_I2V.py``` by modifying the variable ```HF_TOKEN``` in the 8th line of the python file. Go to https://huggingface.co/settings/tokens to create a token and assign it to ```HF_TOKEN```.
+Edit ```character_with_I2V.py``` in the current directory by modifying the variable ```HF_TOKEN``` in the 8th line of the python file. Go to https://huggingface.co/settings/tokens to create a token and assign it to ```HF_TOKEN```.
 
 <b>Step 5</b>
 
