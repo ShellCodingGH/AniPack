@@ -43,6 +43,9 @@ Edit ```character_with_I2V.py``` in the current directory by modifying the varia
 
 <b>Step 5</b>
 
+Change back to the```Anipack``` directory.
+```cd ..```
+
 Run the command in terminal: ```python character_with_I2V.py```
 
 <b>Step 6</b>
