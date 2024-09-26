@@ -7,8 +7,13 @@
     ```pip uninstall -y torch torchvision torchaudio```
    
     ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.1```
-4. cd into the directory ```AniPack```
-5. run ```character_with_I2V.py``` in your terminal.
+3. download these 2 folders, and put under the directory ```AniPack```:
+
+   https://drive.google.com/drive/folders/1y0Z6oZ4RFwDtr682xRQz9eKWSoUFg1De?usp=sharing
+
+   https://drive.google.com/drive/folders/1Vc5ljar1VEUwipWiHep9N4O1lwUhusml?usp=sharing
+5. cd into the directory ```AniPack```
+6. run ```character_with_I2V.py``` in your terminal.
 
 # Credits
 Thanks to ```wen3052963913173401```, ```Nerfgun3```, ```CyberAIchemist```, ```Kokoboy```, ```Euge_```, ```Havoc```, ```lenML```, ```yunleme```, ```luciI```, ```mattmdjaga```, ```okotaku```, ```skytnt```, and ```platcha```.
