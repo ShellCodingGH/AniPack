@@ -1,5 +1,4 @@
 pip install controlnet_aux==0.0.5 
-pip install diffusers==0.27.0
 pip install transformers==4.38.2
 pip install huggingface_hub==0.21.4
 pip install compel==2.0.2
@@ -14,7 +13,7 @@ pip install onnxruntime==1.18.0
 pip install --upgrade 'urllib3==1.26.7' --user
 pip install gradio==4.21.0 accelerate==0.30.0
 pip uninstall -y torch torchvision torchaudio
-pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm6.1
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 pip install pillow==10.3.0
 pip install omegaconf==2.4.0.dev3
 pip install pypinyin==0.51.0
@@ -38,13 +37,8 @@ pip install protobuf==5.27.1
 pip install inflect==7.2.1
 pip install eng_to_ipa==0.0.2
 pip install indic_transliteration==2.3.59
-
-
-
-
-
-
-
-
-
-
+pip install --upgrade pydantic==2.8.2
+pip install --upgrade pydantic-core==2.20.1
+pip uninstall fastapi -y
+pip install fastapi==0.111.0
+pip install diffusers==0.30.3
