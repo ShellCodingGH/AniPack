@@ -1,7 +1,8 @@
 # Installation and Usage
 1. Clone this repository
 2. Copy and paste all the commands in ```requirements_anipack.txt``` into your terminal
-  a. for AMD Mi210 GPU, add these 2 lines at the end of the file ```requirements_anipack.txt```:
+
+   Note: for AMD Mi210 GPU, add these 2 lines at the end of the file ```requirements_anipack.txt```:
 
     ```pip uninstall -y torch torchvision torchaudio```
    
