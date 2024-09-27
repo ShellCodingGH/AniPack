@@ -41,5 +41,6 @@ pip install --upgrade pydantic-core==2.20.1
 pip uninstall fastapi -y
 pip install fastapi==0.111.0
 pip install diffusers==0.30.3
-pip install peft -U
+pip uninstall peft -y
+pip install peft==0.10.0
 pip install cn2an
