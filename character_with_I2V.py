@@ -588,20 +588,20 @@ with gr.Blocks(theme=theme, css="""footer {visibility: hidden}""", title="AniPac
         
         # buttons to release models
         with gr.Column():
-            video_release_btn = gr.Button(value="Video Generator - 20%")
-            chatbot_release_btn = gr.Button(value="Chatbot - 10%")
+            chatbot_release_btn = gr.Button(value="Chatbot - 50%")
+            video_release_btn = gr.Button(value="Video Generator - 10%")
             scribble2img_release_btn = gr.Button(value="Scribble to Image Generator - 10%")
-            txt2img_release_btn = gr.Button(value="Text to Image Generator - 10%")
-            img2img_release_btn = gr.Button(value="Image to Image Generator - 10%")
-            lineart2img_release_btn = gr.Button(value="Lineart to Image Generator - 10%")
-            pose2img_release_btn = gr.Button(value="Pose Variation Generator - 10%")
-            inpaint_release_btn = gr.Button(value="Inpainting Generator - 10%")
-            chibi_release_btn = gr.Button(value="Chibi Generator - 5%")
-            rmbg_release_btn = gr.Button(value="Remove Background Generator - 5%")
+            txt2img_release_btn = gr.Button(value="Text to Image Generator - 5%")
+            img2img_release_btn = gr.Button(value="Image to Image Generator - 5%")
+            lineart2img_release_btn = gr.Button(value="Lineart to Image Generator - 5%")
+            pose2img_release_btn = gr.Button(value="Pose Variation Generator - 5%")
+            inpaint_release_btn = gr.Button(value="Inpainting Generator - 5%")
+            chibi_release_btn = gr.Button(value="Chibi Generator - 3%")
+            rmbg_release_btn = gr.Button(value="Remove Background Generator - 2%")
             
             # handle on-click events - model deletion
-            video_release_btn.click(fn=pipe_video.delete_model, inputs=[], outputs=[])
             chatbot_release_btn.click(fn=pipe_chatbot.delete_model, inputs=[], outputs=[])
+            video_release_btn.click(fn=pipe_video.delete_model, inputs=[], outputs=[])
             scribble2img_release_btn.click(fn=pipe_scribble.delete_model, inputs=[], outputs=[])
             txt2img_release_btn.click(fn=pipe_txt2img.delete_model, inputs=[], outputs=[])
             img2img_release_btn.click(fn=pipe_img2img.delete_model, inputs=[], outputs=[])
