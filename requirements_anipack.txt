@@ -3,7 +3,6 @@ pip install transformers==4.38.2
 pip install huggingface_hub==0.21.4
 pip install compel==2.0.2
 pip install sentencepiece==0.2.0
-pip install peft==0.13.0
 pip install transformers[sentencepiece]
 pip install typing==3.10.0.0
 pip install albumentations==1.4.0 
@@ -42,4 +41,5 @@ pip install --upgrade pydantic-core==2.20.1
 pip uninstall fastapi -y
 pip install fastapi==0.111.0
 pip install diffusers==0.30.3
+pip install peft -U
 pip install cn2an
