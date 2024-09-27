@@ -89,10 +89,12 @@ def chatbot_infer(prompt, chat_history, role):
             {"role": role, "content": prompt},
         ]
         response = pipe_chatbot.infer(messages=messages, max_new_tokens=250, do_sample=True)
+
+        return response
+        
     except RuntimeError as e:
         if 'out of memory' in str(e):
             raise gr.Error("GPU out of memory. Please delete some models.")
-    return response
 
 
 # remove the generated chat response related to action to generate audioes
@@ -129,134 +131,175 @@ def text_to_anime(prompt, negative_prompt, height, width, num_images=4):
         # infer 
         res = pipe_txt2img.infer(prompt=prompt, negative_prompt=negative_prompt, height=height, width=width, 
                                 num_images=num_images)
+        return res
+      
     except RuntimeError as e:
         if 'out of memory' in str(e):
             raise gr.Error("GPU out of memory. Please delete some models.") 
-    return res
 
 
 def scribble_to_image(prompt, negative_prompt, input_image, height, width):
     global pipe_scribble, hed, controlnet_scribble
-    
-    # load model
-    if (pipe_scribble.pipe is None):
-        pipe_scribble.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_scribble.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image, 
-                              height=height, width=width)
+
+    try:
+        # load model
+        if (pipe_scribble.pipe is None):
+            pipe_scribble.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_scribble.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image, 
+                                  height=height, width=width)
+        return res
       
-    return res
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
 
 
 def live_scribble(prompt, negative_prompt, image_box):
     global pipe_scribble, hed, controlnet_scribble
 
-    # get the scribbled layer of the input image
-    input_image = image_box["composite"]
+    try: 
+        # get the scribbled layer of the input image
+        input_image = image_box["composite"]
+        
+        # load model
+        if (pipe_scribble.pipe is None):
+            pipe_scribble.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_scribble.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
     
-    # load model
-    if (pipe_scribble.pipe is None):
-        pipe_scribble.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_scribble.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
-
-    return res
+        return res
+      
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
     
 
 def real_img2img_to_anime(prompt, negative_prompt, input_image):
     global pipe_img2img
+    try:
+        # load model
+        if (pipe_img2img.pipe is None):
+            pipe_img2img.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_img2img.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
     
-    # load model
-    if (pipe_img2img.pipe is None):
-        pipe_img2img.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_img2img.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
-
-    return res
+        return res
+      
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
 
 
 def pose_to_anime(prompt, negative_prompt, input_image):
     global pipe_pose
+    try: 
+        # load model
+        if (pipe_pose.pipe is None):
+            pipe_pose.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_pose.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image, 
+                              height=height, width=width)
     
-    # load model
-    if (pipe_pose.pipe is None):
-        pipe_pose.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_pose.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image, 
-                          height=height, width=width)
+        return res
 
-    return res
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
 
 
 def inpaint(prompt, negative_prompt, input_image, btn):
     global pipe_inpaint
+    try: 
+        # load model
+        if (pipe_inpaint.pipe is None):
+            pipe_inpaint.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_inpaint.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
     
-    # load model
-    if (pipe_inpaint.pipe is None):
-        pipe_inpaint.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_inpaint.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
-
-    return res
+        return res
+      
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
 
 
 def chibi(prompt, negative_prompt, input_image, height, width):
     global pipe_chibi
     
-    # load model
-    if (pipe_chibi.pipe is None):
-        pipe_chibi.multi_thread_load_model()  
+    try: 
+        # load model
+        if (pipe_chibi.pipe is None):
+            pipe_chibi.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_chibi.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
     
-    # infer
-    res = pipe_chibi.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
+        return res
 
-    return res
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
     
 
 def lineart(prompt, negative_prompt, input_image):
     global pipe_lineart, lineart_processor
-    
-    # load model
-    if (pipe_lineart.pipe is None):
-        pipe_lineart.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_lineart.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
 
-    return res
+    try: 
+        # load model
+        if (pipe_lineart.pipe is None):
+            pipe_lineart.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_lineart.infer(prompt=prompt, negative_prompt=negative_prompt, input_img=input_image)
+    
+        return res
+      
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
     
 
 def rmbg_fn(input_image):
     global rmbg_model
+    try: 
+        # load model
+        if (rmbg_model.pipe is None):
+            rmbg_model.multi_thread_load_model()  
+        
+        # infer
+        res = rmbg_model.infer(input_img=input_image)
     
-    # load model
-    if (rmbg_model.pipe is None):
-        rmbg_model.multi_thread_load_model()  
-    
-    # infer
-    res = rmbg_model.infer(input_img=input_image)
-
-    return res
+        return res
+      
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
     
 
 def I2VGen_video(prompt, negative_prompt, num_inference_steps, num_frames, input_img, fps=30):
     global pipe_video
-    
-    # load model
-    if (pipe_video.pipe is None):
-        pipe_video.multi_thread_load_model()  
-    
-    # infer
-    res = pipe_video.infer(prompt=prompt, negative_prompt=negative_prompt, num_inference_steps=num_inference_steps,
-                           num_frames=num_frames, input_img=input_img, 
-                           fps=fps)
 
-    return res
+    try: 
+        # load model
+        if (pipe_video.pipe is None):
+            pipe_video.multi_thread_load_model()  
+        
+        # infer
+        res = pipe_video.infer(prompt=prompt, negative_prompt=negative_prompt, num_inference_steps=num_inference_steps,
+                               num_frames=num_frames, input_img=input_img, 
+                               fps=fps)
+    
+        return res
+      
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
 
 
 # transport selected image in gallery to other tabs in app
