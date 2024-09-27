@@ -11,7 +11,7 @@ pip install sk-video==1.1.10
 pip install moviepy
 pip install onnxruntime==1.18.0
 pip install --upgrade 'urllib3==1.26.7' --user
-pip install gradio==4.44.0 accelerate==0.30.0
+pip install gradio==4.43.0 accelerate==0.30.0
 pip uninstall -y torch torchvision torchaudio
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 pip install pillow==10.3.0
