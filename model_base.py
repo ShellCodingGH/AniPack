@@ -102,7 +102,7 @@ class Model():
             case "txt2img":
                 # load pipe
                 pipe = DiffusionPipeline.from_pretrained(
-                    "shellypeng/animever10-god-model", 
+                    "shellypeng/model_am", 
                     torch_dtype=torch.float16, 
                 )
                 # load LoRAs
@@ -118,7 +118,7 @@ class Model():
                 self.hed = hed
                 
                 # load pipe
-                pipe = StableDiffusionControlNetPipeline.from_pretrained("shellypeng/animever10-god-model", controlnet=controlnet_scribble, torch_dtype=torch.float16)
+                pipe = StableDiffusionControlNetPipeline.from_pretrained("shellypeng/model_am", controlnet=controlnet_scribble, torch_dtype=torch.float16)
                 # load HED processor for preprocessing of ControlNet scribble
                 
                 # load LoRAs
@@ -128,7 +128,7 @@ class Model():
                 print("scribble loaded")
             case "img2img":
                 # load pipe
-                pipe = StableDiffusionImg2ImgPipeline.from_pretrained("shellypeng/animever10-god-model", torch_dtype=torch.float16,)
+                pipe = StableDiffusionImg2ImgPipeline.from_pretrained("shellypeng/model_am", torch_dtype=torch.float16,)
                 
                 # load LoRAs
                 pipe = self.multi_thread_load_lora(pipe)
@@ -138,7 +138,7 @@ class Model():
             case "img2pose":
                 # load pipe
                 pipe = StableDiffusionReferencePipeline.from_pretrained(
-                    "shellypeng/animever10-god-model", 
+                    "shellypeng/model_am", 
                     torch_dtype=torch.float16, 
                 )
                 # load LoRAs
@@ -153,7 +153,7 @@ class Model():
 
                 # load pipe
                 pipe = StableDiffusionControlNetInpaintPipeline.from_pretrained(
-                    "shellypeng/animever10-god-model", controlnet=controlnet_inpaint, torch_dtype=torch.float16
+                    "shellypeng/model_am", controlnet=controlnet_inpaint, torch_dtype=torch.float16
                 )
                 
                 
@@ -165,7 +165,7 @@ class Model():
             
             case "chibi":
                 # load pipe
-                pipe = StableDiffusionImg2ImgPipeline.from_pretrained("shellypeng/animever10-god-model",
+                pipe = StableDiffusionImg2ImgPipeline.from_pretrained("shellypeng/model_am",
                                                                             torch_dtype=torch.float16, )
                 # load LoRAs
                 pipe = self.multi_thread_load_lora(pipe, chibi=True)
@@ -180,7 +180,7 @@ class Model():
                 
                 # load pipe
                 pipe = StableDiffusionControlNetPipeline.from_pretrained(
-                    "shellypeng/animever10-god-model", controlnet=controlnet_lineart,
+                    "shellypeng/model_am", controlnet=controlnet_lineart,
                     torch_dtype=torch.float16, 
                 )
                 
