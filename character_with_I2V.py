@@ -79,17 +79,19 @@ def play_audio():
 # chatbot function
 def chatbot_infer(prompt, chat_history, role):
     global pipe_chatbot
-    
-    # load chatbot model
-    if pipe_chatbot.pipe is None:
-        pipe_chatbot.multi_thread_load_model()   
-    
-    # get chatbot response
-    messages = [
-        {"role": role, "content": prompt},
-    ]
-    response = pipe_chatbot.infer(messages=messages, max_new_tokens=250, do_sample=True)
-    
+    try: 
+        # load chatbot model
+        if pipe_chatbot.pipe is None:
+            pipe_chatbot.multi_thread_load_model()   
+        
+        # get chatbot response
+        messages = [
+            {"role": role, "content": prompt},
+        ]
+        response = pipe_chatbot.infer(messages=messages, max_new_tokens=250, do_sample=True)
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.")
     return response
 
 
@@ -119,15 +121,17 @@ def voice_infer(chatbot, speaker, language="English", speed=1.0, is_symbol=False
 
 def text_to_anime(prompt, negative_prompt, height, width, num_images=4):
     global pipe_txt2img
-    
-    # load model
-    if (pipe_txt2img.pipe is None):
-        pipe_txt2img.multi_thread_load_model()     
-    
-    # infer 
-    res = pipe_txt2img.infer(prompt=prompt, negative_prompt=negative_prompt, height=height, width=width, 
-                             num_images=num_images)
-    
+    try:
+        # load model
+        if (pipe_txt2img.pipe is None):
+            pipe_txt2img.multi_thread_load_model()     
+        
+        # infer 
+        res = pipe_txt2img.infer(prompt=prompt, negative_prompt=negative_prompt, height=height, width=width, 
+                                num_images=num_images)
+    except RuntimeError as e:
+        if 'out of memory' in str(e):
+            raise gr.Error("GPU out of memory. Please delete some models.") 
     return res
 
 
