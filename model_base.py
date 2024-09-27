@@ -53,13 +53,6 @@ hidden_booster_text = ", masterpiece-anatomy-perfect, dynamic, dynamic colors, b
 hidden_negative = ", internal-organs-outside-the-body, internal-organs-visible, anatomy-description, unprompted-nsfw ,worst-human-external-anatomy, worst-human-hands-anatomy, worst-human-fingers-anatomy, worst-detailed-eyes, worst-detailed-fingers, worst-human-feet-anatomy, worst-human-toes-anatomy, worst-detailed-feet, worst-detailed-toes, camera, smartphone, worst-facial-details, ugly-detailed-fingers, ugly-detailed-toes,fingers-in-worst-possible-shape, worst-detailed-eyes, undetailed-eyes, undetailed-fingers, undetailed-toes, "
 
 
-def disabled_safety_checker(images, clip_input):
-    if len(images.shape)==4:
-        num_images = images.shape[0]
-        return images, [False]*num_images
-    else:
-        return images, False
-
 class Model():
     def __init__(self, model_name):
         self.model_name = model_name
@@ -135,9 +128,8 @@ class Model():
                 print("scribble loaded")
             case "img2img":
                 # load pipe
-                pipe = StableDiffusionImg2ImgPipeline.from_pretrained("shellypeng/animever10-god-model", torch_dtype=torch.float16, safety_checker=None)
+                pipe = StableDiffusionImg2ImgPipeline.from_pretrained("shellypeng/animever10-god-model", torch_dtype=torch.float16,)
                 
-                pipe.safety_checker = disabled_safety_checker
                 # load LoRAs
                 pipe = self.multi_thread_load_lora(pipe)
                 # load textual inversions
