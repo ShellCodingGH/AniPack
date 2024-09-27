@@ -289,10 +289,10 @@ with gr.Blocks(theme=theme, css="""footer {visibility: hidden}""", title="AniPac
         # get inputs for creating character prototype
         with gr.Row():
             prompt_box = gr.Textbox(label="Prompt", placeholder="Enter a prompt", lines=3)
-            height = gr.Slider(512, 1960, label="Height", step=8, value=1280)
+            height = gr.Slider(512, 1960, label="Height", step=8, value=1024)
         with gr.Row():
             neg_prompt_box = gr.Textbox(label="Negative Prompt", placeholder="Enter a negative prompt(things you don't want to include in the generated image)", lines=3)
-            width = gr.Slider(512, 1960, label="Width", step=8, value=1000)
+            width = gr.Slider(512, 1960, label="Width", step=8, value=800)
         txt2img_gen_btn = gr.Button(value="Generate With Text")
 
         # sub-tab for image-to-image generation
