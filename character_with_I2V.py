@@ -364,7 +364,7 @@ with gr.Blocks(theme=theme, css="""footer {visibility: hidden}""", title="AniPac
         
         # get inputs for chatbot
         with gr.Row(equal_height=True):
-            chatbot_input_img = gr.Image(label="Companion Image", interactive=True, type='pil')
+            chatbot_input_img = gr.Image(label="Companion Image", interactive=True, type='pil', height=720)
             
             with gr.Column():
                 placeholder = gr.Textbox(visible=False)
