@@ -459,7 +459,7 @@ with gr.Blocks(theme=theme, css="""footer {visibility: hidden}""", title="AniPac
 
         with gr.Row():
             vid_neg_prompt_box = gr.Textbox(label="Negative Prompt", placeholder="Enter a negative prompt(things you don't want to include in the generated image)", lines=3)
-        video_steps = gr.Slider(1, 500, label="Inference Steps", value=250)
+        video_steps = gr.Slider(1, 500, label="Inference Steps", value=200)
         with gr.Row():
             num_frames = gr.Slider(10, 40, label="Number of Frames", value=10)
             fps_slider = gr.Slider(20, 50, label="FPS", value=40)
